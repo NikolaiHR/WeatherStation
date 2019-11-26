@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherStationRest", "WeatherStationRest\WeatherStationRest.csproj", "{7E3C1B33-C531-4E18-BF7D-7C985E499BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationRest", "WeatherStationRest\WeatherStationRest.csproj", "{7E3C1B33-C531-4E18-BF7D-7C985E499BD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLib", "ModelLib\ModelLib.csproj", "{CF360453-444C-4C57-893D-C89573A34F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelLib", "ModelLib\ModelLib.csproj", "{CF360453-444C-4C57-893D-C89573A34F66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPProxy", "UDPProxy\UDPProxy.csproj", "{C40CBE4E-0416-475B-94A8-3CE216EA3D08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CF360453-444C-4C57-893D-C89573A34F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF360453-444C-4C57-893D-C89573A34F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF360453-444C-4C57-893D-C89573A34F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40CBE4E-0416-475B-94A8-3CE216EA3D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40CBE4E-0416-475B-94A8-3CE216EA3D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40CBE4E-0416-475B-94A8-3CE216EA3D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40CBE4E-0416-475B-94A8-3CE216EA3D08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

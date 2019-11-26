@@ -12,20 +12,24 @@ namespace WeatherStationRest.Controllers
     [ApiController]
     public class WeathersController : ControllerBase
     {
-        List<Forecast> _forecast = new List<Forecast>();
+        List<Forecast> _forecasts = new List<Forecast>()
+        {
+            new Forecast(67.66, 454.435, 44.69),
+            new Forecast(4, 5, 6)
+        };
 
-        //[HttpGet]
-        //[Route("CurrentWeather")]
-        //public Forecast CurrentWeather()
-        //{
-
-        //}
+        [HttpGet]
+        [Route("Current")]
+        public Forecast CurrentWeather()
+        {
+            return _forecasts[_forecasts.Count - 1];
+        }
 
         // GET: api/Weathers
         [HttpGet]
         public IEnumerable<Forecast> Get()
         {
-            return _forecast;
+            return _forecasts;
         }
 
         // GET: api/Weathers/5
@@ -39,7 +43,7 @@ namespace WeatherStationRest.Controllers
         [HttpPost]
         public void Post([FromBody] Forecast forecast)
         {
-            _forecast.Add(forecast);
+            _forecasts.Add(forecast);
         }
 
         // PUT: api/Weathers/5
