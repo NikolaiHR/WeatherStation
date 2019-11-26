@@ -12,7 +12,7 @@ namespace WeatherStationRest.Controllers
     [ApiController]
     public class WeathersController : ControllerBase
     {
-        List<Forecast> _forecasts = new List<Forecast>()
+        private static List<Forecast> _forecasts = new List<Forecast>()
         {
             new Forecast(67.66, 454.435, 44.69),
             new Forecast(4, 5, 6)
