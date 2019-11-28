@@ -7,7 +7,7 @@ namespace UDPProxy
         static void Main(string[] args)
         {
             Proxy proxy = new Proxy();
-
+            proxy.Start();
 
 
             Console.ReadLine();

@@ -28,13 +28,17 @@ namespace UDPProxy
             while (true)
             {
                 byte[] bytes = udpClient.Receive(ref remote);
-                string jsonStringToSend = Encoding.UTF8.GetString(bytes);
+                // string jsonStringToSend = Encoding.UTF8.GetString(bytes);
+                string jsonStringToSend = "{ \"temp\":67.66,\"pressure\":454.435,\"humidity\":44.69}";
 
-                using (HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
                 {
                     StringContent content = new StringContent(jsonStringToSend, Encoding.UTF8, "application/json");
+                    Task<HttpResponseMessage> resp = client.PostAsync(URI, content);
 
-                    client.PostAsync(URI, content);
+
+                    string str = client.GetStringAsync(URI).Result;
+
 
 
                 }

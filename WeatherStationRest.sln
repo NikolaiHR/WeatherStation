@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationRest", "Weath
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelLib", "ModelLib\ModelLib.csproj", "{CF360453-444C-4C57-893D-C89573A34F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPProxy", "UDPProxy\UDPProxy.csproj", "{C40CBE4E-0416-475B-94A8-3CE216EA3D08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDPProxy", "UDPProxy\UDPProxy.csproj", "{C40CBE4E-0416-475B-94A8-3CE216EA3D08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
