@@ -41,9 +41,12 @@ namespace WeatherStationRest.Controllers
 
         // POST: api/Weathers
         [HttpPost]
-        public void Post([FromBody] Forecast forecast)
+        public bool Post([FromBody] Forecast forecast)
         {
+            int numberOfForecasts = _forecasts.Count;
             _forecasts.Add(forecast);
+            return _forecasts.Count - numberOfForecasts == 1;
+
         }
 
         // PUT: api/Weathers/5
