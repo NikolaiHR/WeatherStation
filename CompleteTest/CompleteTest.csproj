@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModelLib\ModelLib.csproj" />
+    <ProjectReference Include="..\UDPProxy\UDPProxy.csproj" />
   </ItemGroup>
 
 </Project>

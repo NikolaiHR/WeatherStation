@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UDPProxy
 {
-    class Proxy
+    public class Proxy
     {
 
         #region InstanceFields

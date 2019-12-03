@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using UDPProxy;
 
 namespace CompleteTest
 {
@@ -17,7 +19,7 @@ namespace CompleteTest
 
         private static IWebDriver _driver;
         private static readonly string _driverDirectory = @"C:\EASJ\UiTestDrivers";
-
+        private static UDPProxy.Proxy _proxy;
 
         #endregion
 
@@ -25,6 +27,9 @@ namespace CompleteTest
         public static void Setup(TestContext context)
         {
             _driver = new ChromeDriver(_driverDirectory);
+            _proxy = new UDPProxy.Proxy();
+            
+            
         }
 
         [ClassCleanup]
@@ -39,16 +44,25 @@ namespace CompleteTest
             _driver.Navigate().GoToUrl("http://localhost:3000/");
             string title = _driver.Title;
             Assert.AreEqual("Weather Station", title);
+            _proxy.Start();
+
+            //WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            
 
             IWebElement temperatureElement = _driver.FindElement(By.Id("currentTemp"));
             IWebElement humidityeElement = _driver.FindElement(By.Id("currentHumidity"));
             IWebElement pressureElement = _driver.FindElement(By.Id("currentPressure"));
 
+            Task task = Task.Delay(TimeSpan.FromSeconds(11));
+            task.Wait();
+
             double temperature = double.Parse(temperatureElement.Text);
             double humidity = double.Parse(humidityeElement.Text);
             double pressure = double.Parse(pressureElement.Text);
 
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+
+            Task task2 = Task.Delay(TimeSpan.FromSeconds(8));
+            task2.Wait();
 
             double temperature2 = double.Parse(temperatureElement.Text);
             double humidity2 = double.Parse(humidityeElement.Text);

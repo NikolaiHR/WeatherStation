@@ -17,6 +17,7 @@ namespace WeatherStationRest.Controllers
             new Forecast(67.66, 454.435, 44.69),
             new Forecast(4, 5, 6)
         };
+        
 
         [HttpGet]
         [Route("Current")]
