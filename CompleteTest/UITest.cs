@@ -5,11 +5,12 @@ using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace CompleteTest
 {
     [TestClass]
-    class UITest
+    public class UITest
     {
 
         #region InstanceFields
@@ -21,7 +22,7 @@ namespace CompleteTest
         #endregion
 
         [ClassInitialize]
-        public static void Setup()
+        public static void Setup(TestContext context)
         {
             _driver = new ChromeDriver(_driverDirectory);
         }
@@ -47,9 +48,15 @@ namespace CompleteTest
             double humidity = double.Parse(humidityeElement.Text);
             double pressure = double.Parse(pressureElement.Text);
 
-            Thread.Sleep(10000);
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
 
+            double temperature2 = double.Parse(temperatureElement.Text);
+            double humidity2 = double.Parse(humidityeElement.Text);
+            double pressure2 = double.Parse(pressureElement.Text);
 
+            Assert.IsTrue(Math.Abs(temperature-temperature2) < 2);
+            Assert.IsTrue(Math.Abs(humidity-humidity2) < 2);
+            Assert.IsTrue(Math.Abs(pressure-pressure2) < 2);
 
 
         }
