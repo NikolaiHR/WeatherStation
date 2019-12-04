@@ -46,7 +46,7 @@ namespace CompleteTest
             Assert.AreEqual("Weather Station", title);
             _proxy.Start();
 
-            //WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            
             
 
             IWebElement temperatureElement = _driver.FindElement(By.Id("currentTemp"));
@@ -71,6 +71,24 @@ namespace CompleteTest
             Assert.IsTrue(Math.Abs(temperature-temperature2) < 2);
             Assert.IsTrue(Math.Abs(humidity-humidity2) < 2);
             Assert.IsTrue(Math.Abs(pressure-pressure2) < 2);
+
+
+        }
+
+        [TestMethod]
+        public void TestGetCurrentWeatherConditionOutside()
+        {
+            _driver.Navigate().GoToUrl("http://localhost:3000/");
+            string title = _driver.Title;
+            Assert.AreEqual("Test3API", title);
+
+            IWebElement buttonElement = _driver.FindElement(By.Id("currentWeatherConditionButton"));
+            buttonElement.Click();
+
+            IWebElement weatherConditionElement = _driver.FindElement(By.Id("currentWeatherCondition"));
+            string weatherCondition = weatherConditionElement.Text;
+
+            Assert.IsTrue(!String.IsNullOrWhiteSpace(weatherCondition) && weatherCondition.Length < 31);
 
 
         }
