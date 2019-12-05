@@ -76,19 +76,25 @@ namespace CompleteTest
         }
 
         [TestMethod]
-        public void TestGetCurrentWeatherConditionOutside()
+        public void TestGetCurrentOutsideWeatherCondition()
         {
             _driver.Navigate().GoToUrl("http://localhost:3000/");
             string title = _driver.Title;
-            Assert.AreEqual("Test3API", title);
+            Assert.AreEqual("Weather Station", title);
 
-            IWebElement buttonElement = _driver.FindElement(By.Id("currentWeatherConditionButton"));
+            IWebElement buttonElement = _driver.FindElement(By.Id("currentOutsideWeatherConditionButton"));
             buttonElement.Click();
 
-            IWebElement weatherConditionElement = _driver.FindElement(By.Id("currentWeatherCondition"));
+            Task task = Task.Delay(TimeSpan.FromSeconds(3));
+            task.Wait();
+
+            IWebElement weatherConditionElement = _driver.FindElement(By.Id("currentOutsideWeatherCondition"));
             string weatherCondition = weatherConditionElement.Text;
 
-            Assert.IsTrue(!String.IsNullOrWhiteSpace(weatherCondition) && weatherCondition.Length < 31);
+            Assert.IsTrue(!String.IsNullOrWhiteSpace(weatherCondition));
+            Assert.IsTrue(weatherCondition.ToUpper().Contains("SOL")
+                          || weatherCondition.ToUpper().Contains("SKY") || weatherCondition.ToUpper().Contains("REGN")
+                          || weatherCondition.ToUpper().Contains("HIMMEL") || weatherCondition.ToUpper().Contains("BLÆS"));
 
 
         }
