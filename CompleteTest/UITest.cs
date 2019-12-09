@@ -46,9 +46,6 @@ namespace CompleteTest
             Assert.AreEqual("Weather Station", title);
             _proxy.Start();
 
-            
-            
-
             IWebElement temperatureElement = _driver.FindElement(By.Id("currentTemp"));
             IWebElement humidityeElement = _driver.FindElement(By.Id("currentHumidity"));
             IWebElement pressureElement = _driver.FindElement(By.Id("currentPressure"));
@@ -60,7 +57,6 @@ namespace CompleteTest
             double humidity = double.Parse(humidityeElement.Text);
             double pressure = double.Parse(pressureElement.Text);
 
-
             Task task2 = Task.Delay(TimeSpan.FromSeconds(8));
             task2.Wait();
 
@@ -71,8 +67,6 @@ namespace CompleteTest
             Assert.IsTrue(Math.Abs(temperature-temperature2) < 2);
             Assert.IsTrue(Math.Abs(humidity-humidity2) < 2);
             Assert.IsTrue(Math.Abs(pressure-pressure2) < 2);
-
-
         }
 
         [TestMethod]
@@ -95,8 +89,6 @@ namespace CompleteTest
             Assert.IsTrue(weatherCondition.ToUpper().Contains("SOL")
                           || weatherCondition.ToUpper().Contains("SKY") || weatherCondition.ToUpper().Contains("REGN")
                           || weatherCondition.ToUpper().Contains("HIMMEL") || weatherCondition.ToUpper().Contains("BLÆS"));
-
-
         }
 
     }
